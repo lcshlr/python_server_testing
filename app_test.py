@@ -1,4 +1,3 @@
-import pytest
 import requests
 from time import time
 
@@ -17,4 +16,4 @@ def test_calc_stress():
         requests.get(f'{URL}/?numbers=1,2,3')
         end = time()
         exec_times.append(((end - start)*1000))
-    assert len(exec_times) == 1000
+    assert (sum(exec_times) / len(exec_times)) < 100
